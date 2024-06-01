@@ -42,11 +42,11 @@ classifiers=[
 ]
 
 [project.urls]
-"Homepage/Repository" = "https://github.com/anugrahjo/pyslsqp_alpha"
-Documentation = 'https://pyslsqp-alpha.readthedocs.io/en/latest/'
-"Bug Tracker" = "https://github.com/anugrahjo/pyslsqp_alpha/issues"
-Changelog = "https://pyslsqp-alpha.readthedocs.io/en/latest/src/changelog.html"
-Download = "https://test.pypi.org/project/pyslsqp/#files"
+"Homepage/Repository" = "https://github.com/anugrahjo/pyslsqp"
+Documentation = 'https://pyslsqp.readthedocs.io/en/latest/'
+"Bug Tracker" = "https://github.com/anugrahjo/pyslsqp/issues"
+Changelog = "https://pyslsqp.readthedocs.io/en/latest/src/changelog.html"
+Download = "https://pypi.org/project/pyslsqp/#files"
 
 [tool.setuptools.dynamic]
 version = {attr = "pyslsqp.__version__"}

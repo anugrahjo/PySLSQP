@@ -4,7 +4,7 @@ Contributions are always welcome and appreciated!
 This document is intended for developers who would like to contribute to PySLSQP.
 
 ## Reporting Bugs / Feature suggestions
-Please use the [GitHub issue tracker](https://github.com/anugrahjo/PySLSQP_alpha/issues) 
+Please use the [GitHub issue tracker](https://github.com/anugrahjo/PySLSQP/issues) 
 for reporting any bugs that you come across, and suggesting new features.
 Before doing so, please review the list of open issues to see if the same issue has been reported before. 
 If it's already been reported, please comment on the existing issue instead of creating a new one.
@@ -118,4 +118,4 @@ opening the `docs/_build/html/index.html` on your web browser.
 
 ## License
 By contributing to PySLSQP, you agree to make anything contributed to the repository available 
-under the [BSD 3-Clause "New" or "Revised" License](https://github.com/anugrahjo/PySLSQP_alpha/blob/main/LICENSE.txt).
+under the [BSD 3-Clause "New" or "Revised" License](https://github.com/anugrahjo/PySLSQP/blob/main/LICENSE.txt).

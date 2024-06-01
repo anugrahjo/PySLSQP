@@ -59,11 +59,11 @@ year = "2024",
 ```
 
 <!-- ## Bugs, feature requests, questions
-Please use the [GitHub issue tracker](https://github.com/anugrahjo/PySLSQP_alpha/issues) for reporting bugs, requesting new features, or any other questions.
+Please use the [GitHub issue tracker](https://github.com/anugrahjo/PySLSQP/issues) for reporting bugs, requesting new features, or any other questions.
 
 ## Contributing
 We always welcome contributions to PySLSQP. 
-Please refer the [`CONTRIBUTING.md`](https://github.com/anugrahjo/PySLSQP_alpha/blob/main/CONTRIBUTING.md) 
+Please refer the [`CONTRIBUTING.md`](https://github.com/anugrahjo/PySLSQP/blob/main/CONTRIBUTING.md) 
 file for guidelines on how to contribute.
 
 ## License

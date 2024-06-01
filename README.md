@@ -7,12 +7,12 @@
 [![PyPI Monthly Downloads][12]][11]
 -->
 
-[![GitHub Actions Test Badge](https://github.com/anugrahjo/PySLSQP_alpha/actions/workflows/build_install_test.yml/badge.svg)](https://github.com/anugrahjo/PySLSQP_alpha/actions)
-[![Coverage Status](https://coveralls.io/repos/github/anugrahjo/PySLSQP_alpha/badge.svg?branch=main)](https://coveralls.io/github/anugrahjo/PySLSQP_alpha?branch=main)
+[![GitHub Actions Test Badge](https://github.com/anugrahjo/PySLSQP/actions/workflows/build_install_test.yml/badge.svg)](https://github.com/anugrahjo/PySLSQP/actions)
+[![Coverage Status](https://coveralls.io/repos/github/anugrahjo/PySLSQP/badge.svg?branch=main)](https://coveralls.io/github/anugrahjo/PySLSQP?branch=main)
 [![Pypi version](https://img.shields.io/test.pypi/v/pyslsqp)](https://test.pypi.org/project/pyslsqp/)
-[![Forks](https://img.shields.io/github/forks/anugrahjo/PySLSQP_alpha.svg)](https://github.com/anugrahjo/PySLSQP_alpha/network)
-[![Issues](https://img.shields.io/github/issues/anugrahjo/PySLSQP_alpha.svg)](https://github.com/anugrahjo/PySLSQP_alpha/issues)
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/anugrahjo/PySLSQP_alpha/blob/main/LICENSE.txt)
+[![Forks](https://img.shields.io/github/forks/anugrahjo/PySLSQP.svg)](https://github.com/anugrahjo/PySLSQP/network)
+[![Issues](https://img.shields.io/github/issues/anugrahjo/PySLSQP.svg)](https://github.com/anugrahjo/PySLSQP/issues)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/anugrahjo/PySLSQP/blob/main/LICENSE.txt)
 
 The SLSQP algorithm is designed to solve nonlinear programming (NLP) problems.
 PySLSQP is a Python package that wrraps the original SLSQP algorithm 
@@ -152,8 +152,8 @@ Please use the [GitHub issue tracker](https://github.com/anugrahjo/PySLSQP/issue
 
 ## Contributing
 We always welcome contributions to PySLSQP. 
-Please refer the [`CONTRIBUTING.md`](https://github.com/anugrahjo/PySLSQP_alpha/blob/main/CONTRIBUTING.md) 
+Please refer the [`CONTRIBUTING.md`](https://github.com/anugrahjo/PySLSQP/blob/main/CONTRIBUTING.md) 
 file for guidelines on how to contribute.
 
 ## License
-This project is licensed under the terms of the [BSD 3-Clause "New" or "Revised" License](https://github.com/anugrahjo/PySLSQP_alpha/blob/main/LICENSE.txt).
+This project is licensed under the terms of the [BSD 3-Clause "New" or "Revised" License](https://github.com/anugrahjo/PySLSQP/blob/main/LICENSE.txt).
