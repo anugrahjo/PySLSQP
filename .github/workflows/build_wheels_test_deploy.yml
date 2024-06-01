@@ -281,8 +281,8 @@ jobs:
     name: Upload to PyPI
     needs: [build_wheels, build_sdist, manual_test_of_sdist]
     runs-on: ubuntu-22.04
-    environment: testpypi
-    # environment: pypi
+    # environment: testpypi
+    environment: pypi
     permissions:
       id-token: write # IMPORTANT: this permission is mandatory for trusted publishing
     # if: github.event_name == 'release' && github.event.action == 'published'

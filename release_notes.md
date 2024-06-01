@@ -1,5 +1,5 @@
 ***********************************
-# PySLSQP 0.1.0 (MAY 15, 2024)
+# PySLSQP 0.1.0 (JUNE 1, 2024)
 Initial Development Release of PySLSQP.
 
 Summary of major changes from the previous release - None
