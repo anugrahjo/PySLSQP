@@ -1,0 +1,53 @@
+# .readthedocs.yaml
+# Read the Docs configuration file
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+# Required
+version: 2
+
+# Set the version of Python and other tools you might need
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "mambaforge-22.9"
+    # You can also specify other tool versions:
+    # nodejs: "19"
+    # rust: "1.64"
+    # golang: "1.19"
+
+# Build documentation in the docs/ directory with Sphinx
+# To specify the path to the conf.py file, relative to the root of the project,
+sphinx:
+   configuration: docs/conf.py
+   # Can also specify the builder type for the Sphinx documentation, and turn warnings into errors
+   # builder: html
+   # fail_on_warning: true
+
+# If using Sphinx, optionally build your docs in additional formats such as PDF
+formats:
+   - pdf
+   - epub
+   - htmlzip
+
+# # The conda environment will be set up first using the environment.yml file, 
+# # and then pip will install any additional dependencies listed in the requirements.txt file.
+# # The above comment doesn't seem to be correct as build failed when the following was run
+# # instead of running it in the environment.yaml file
+# Optionally declare the Python requirements required to build your docs
+# python:
+#    install:
+#    - requirements: requirements.txt
+#    - method: pip
+#      path: .
+
+# If using a conda environment, 
+# add the path to the Conda environment file, relative to the root of the project.
+conda:
+  environment: environment.yaml
+
+# TODO: It's important to note that conda and pip don't always play nicely together. 
+# If we have dependencies that are available in both the conda and pip repositories, 
+# it's generally a good idea to install them using the same tool to avoid any potential conflicts.
+# If all our dependencies are available in the conda repositories, we might want to consider moving all 
+# our dependencies to the environment.yml file and removing the python: install: section from our .readthedocs.yaml file. 
+# This way, all our dependencies will be installed using conda.

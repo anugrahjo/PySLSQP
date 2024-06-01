@@ -1,0 +1,178 @@
+# This workflow will install Python dependencies, build and install pySLSQP, run tests with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+# Build and install from source and run tests
+name: Tests
+
+# Whenever there is a pull request (PR) or push to the "main" branch, the jobs specified below will run.
+on: 
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Here, we specify the automatic cloud based testing that will be run on pushes/PRs to "main"
+jobs:
+  master-build-test-upload-coverage-ubuntu:
+
+    # The tests will run on ubuntu with python version 3.10.
+    # It will upload the coverage report to coveralls
+    # runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        # os: [ubuntu-22.04, windows-2022, macos-14]
+        # python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.10"]
+
+    steps:
+      # The steps here are essentially command-line arguments that will be ran on the cloud with the above configurations  
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+      # Here we install the package of this repositories as well as other required packages 
+    - name: Install dependencies
+      run: | 
+        python -m pip install --upgrade pip
+        python -m pip install pytest pytest-cov coveralls
+        python -m pip install -e .
+
+      # Finally, we run the package unit-tests on the specified OS and python versions
+      # and generate the coverage report
+    - name: Test with pytest
+      run: |
+        pytest tests/ --cov=pyslsqp --cov-report lcov
+      
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@v2.3.0
+      with:
+        github-token: ${{ secrets.COVERALLS_REPO_TOKEN}}
+        file: ./coverage.lcov
+
+  build-and-test-macos-ubuntu:
+    # The tests will run on ubuntu and macos with python versions 3.8, 3.9, 3.10, 3.11, and 3.12.
+    runs-on: ${{ matrix.os }}
+    # runs-on: macos-14
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, macos-14]
+        # os: [ubuntu-22.04, windows-2022, macos-14]
+        python-version: ["3.8", "3.10", "3.12"]
+
+    steps:
+      # The steps here are essentially command-line arguments that will be ran on the cloud with the above configurations  
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        update-environment: true
+    
+    - name: reinstall gcc for macos
+      if: contains(matrix.os, 'macos')
+      run: | 
+        brew reinstall gcc
+
+      # Here we install the package of this repositories as well as other required packages 
+    - name: Install dependencies
+      run: | 
+        python -m pip install --upgrade pip
+        python -m pip install pytest
+        python -m pip install .
+
+      # Finally, we run the package unit-tests on the specified OS and python versions.
+    - name: Test with pytest
+      run: |
+        pytest
+
+  # build-and-test-windows:
+  build-windows:
+    # The tests will run on ubuntu with python versions 3.8, 3.9, and 3.10.
+    # Add other OSes like windows and macos if needed as well as other Python versions  
+    runs-on: windows-2022
+
+    defaults:
+      run:
+          shell: bash -el {0}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        python-version: [ "3.10",]
+
+    steps:
+      # The steps here are essentially command-line arguments that will be ran on the cloud with the above configurations  
+
+    # - name: Install mingw-w64 for Windows
+    #   uses: msys2/setup-msys2@v2
+    #   with:
+    #     path-type: inherit
+    #     install: |
+    #       mingw-w64-x86_64-gcc
+    #       mingw-w64-x86_64-gcc-fortran
+
+    - name: Install rtools (mingw-w64)
+      run: |
+        choco install rtools -y --no-progress --force --version=4.0.0.20220206
+        echo "c:\rtools40\ucrt64\bin;" >> $env:GITHUB_PATH
+    
+    - name: checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        update-environment: true
+
+      # Here we install PySLSQP as well as other required packages 
+    - name: Install dependencies and PySLSQP
+      # shell: msys2 {0} # Only works when  "Install mingw-w64 for Windows" is used
+      run: | 
+        python -m pip install --upgrade pip
+        python -m pip install pytest
+        python -m pip install -e .  # Install the package in editable mode, "pip install ." did not seem to copy the compiled files to the site-packages directory
+        # cat meson_builddir/meson-logs/meson-log.txt
+
+    # - name: Download Dependencies Tool
+    #   run: |
+    #     curl -LO https://github.com/lucasg/Dependencies/releases/download/v1.10/Dependencies_x64_Release.zip
+    #     unzip Dependencies_x64_Release.zip -d Dependencies
+
+    - name: Verify compiled files
+      run: |
+        ls -l pyslsqp
+        # # List DLL dependencies of the compiled module
+        # dumpbin /DEPENDENTS pyslsqp/_slsqp.pyd 
+        
+        # # dump FILE resolved modules
+        # Dependencies/Dependencies.exe -modules pyslsqp/_slsqp.cp310-win_amd64.pyd # shows that python310.dll and libgfortran-5.dll are available
+                                                                                  # So do not know why the error is thrown
+                                                                                  # ImportError: DLL load failed while importing _slsqp: The specified module could not be found.
+        # # dump FILE whole dependency chain
+        # Dependencies/Dependencies.exe -chain pyslsqp/_slsqp.cp310-win_amd64.pyd
+        # # dump all the system's known dlls (x86 and x64)
+        # Dependencies/Dependencies.exe -knowndlls pyslsqp/_slsqp.cp310-win_amd64.pyd
+
+    # - name: List contents of pyslsqp package in site-packages
+    #   run: |
+    #     python -c "import os, site; pyslsqp_dir = os.path.join(site.getsitepackages()[0], 'pyslsqp'); print(f'Contents of {pyslsqp_dir}:'); [print(os.path.join(root, name)) for root, dirs, files in os.walk(pyslsqp_dir) for name in files]"
+
+    #   # Finally, we run the package unit-tests on the specified OS and python versions.
+    # - name: Test with pytest
+    #   run: |
+    #     pytest

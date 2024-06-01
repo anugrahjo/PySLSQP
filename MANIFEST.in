@@ -1,0 +1,10 @@
+# Include Fortran source files and meson.build files in the source distribution
+# but not in the built distribution, e.g., wheel
+include meson.build pyslsqp/meson.build pyslsqp/slsqp/*
+recursive-include docs *
+
+# Exclude the _build directory from the docs in the source distribution
+recursive-exclude docs/_build *
+
+# Exclude any .so files from the source distribution
+global-exclude *.so
