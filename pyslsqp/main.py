@@ -27,8 +27,6 @@ _epsilon = np.sqrt(np.finfo(float).eps)
 from pyslsqp.save_and_load import save_iteration
 from pyslsqp._slsqp import slsqp
 from pyslsqp.visualize import Visualizer
-# from visualize_plotly import Visualizer
-# from visualize_plotly_tabs import Visualizer
 
 try:
     import h5py
@@ -719,6 +717,8 @@ def optimize(x0, obj=None, grad=None,
         print("%5s %5s %5s %16s %16s %16s %16s %16s %16s" % ("MAJOR", "NFEV", "NGEV", "OBJFUN", "GNORM", "CNORM", "FEAS", "OPT", "STEP"))
         print("%5i %5i %5i %16.6E %16.6E %16.6E %16.6E %16.6E %16.6E" % (0, 1, 1, fx, linalg.norm(g), linalg.norm(c), 99.0, 99.0, 99.0))
 
+        # with open('opt_slsqp.out', 'w') as f:
+        #     np.savetxt(f, [h2])
         # with open('duals_slsqp_maj.out', 'w') as f:
         #     np.savetxt(f, w[wref:wref+m].reshape(1,m))
 
@@ -836,16 +836,10 @@ def optimize(x0, obj=None, grad=None,
 
             # Print the status of the current major iterate if iprint >= 2
             if iprint >= 2:
-                # print('abs sum of constraint violations', h2)
-                # print('some measure of optimality (~complementarity)', h3)
                 print("%5i %5i %5i %16.6E %16.6E %16.6E %16.6E %16.6E %16.6E" % (majiter, prob.nfev, prob.ngev,
                                                    fx, linalg.norm(g), linalg.norm(c), feas_calc, h1, alpha))
-                # with open('obj_slsqp.out', 'a') as f:
-                #     np.savetxt(f, [fx])
                 # with open('opt_slsqp.out', 'a') as f:
                 #     np.savetxt(f, [h2])
-                # with open('feas_slsqp.out', 'a') as f:
-                #     np.savetxt(f, [h1])
                 # with open('duals_slsqp_maj.out', 'a') as f:
                 #     np.savetxt(f, w[wref:wref+m].reshape(1,m))
 
@@ -853,7 +847,6 @@ def optimize(x0, obj=None, grad=None,
             with open(summary_filename, 'a') as f:
                 f.write("%5i %5i %5i %16.6E %16.6E %16.6E %16.6E %16.6E %16.6E \n" % (majiter, prob.nfev, prob.ngev,
                                                 fx, linalg.norm(g), linalg.norm(c), feas_calc, h1, alpha))
-                                                # fx, linalg.norm(g), np.sum(np.abs(c[:meq]))+np.sum(np.maximum(0, -c[meq:])), h2, h1, alpha))
             if visualize:
                 visualizer.update_plot(out_dict)
 
