@@ -1,3 +1,3 @@
-__version__ = '0.1.0-dev0'
+__version__ = '0.1.0-alpha'
 
 from pyslsqp.main import optimize, get_default_options
