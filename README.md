@@ -9,9 +9,10 @@
 
 [![GitHub Actions Test Badge](https://github.com/anugrahjo/PySLSQP/actions/workflows/build_install_test.yml/badge.svg)](https://github.com/anugrahjo/PySLSQP/actions)
 [![Coverage Status](https://coveralls.io/repos/github/anugrahjo/PySLSQP/badge.svg?branch=main)](https://coveralls.io/github/anugrahjo/PySLSQP?branch=main)
+[![Documentation Status](https://readthedocs.org/projects/pyslsqp/badge/?version=latest)](https://pyslsqp.readthedocs.io/en/latest/?badge=main)
 [![Pypi version](https://img.shields.io/pypi/v/pyslsqp)](https://pypi.org/project/pyslsqp/)
-[![Forks](https://img.shields.io/github/forks/anugrahjo/PySLSQP.svg)](https://github.com/anugrahjo/PySLSQP/network)
-[![Issues](https://img.shields.io/github/issues/anugrahjo/PySLSQP.svg)](https://github.com/anugrahjo/PySLSQP/issues)
+<!-- [![Forks](https://img.shields.io/github/forks/anugrahjo/PySLSQP.svg)](https://github.com/anugrahjo/PySLSQP/network) -->
+<!-- [![Issues](https://img.shields.io/github/issues/anugrahjo/PySLSQP.svg)](https://github.com/anugrahjo/PySLSQP/issues) -->
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/anugrahjo/PySLSQP/blob/main/LICENSE.txt)
 
 The SLSQP algorithm is designed to solve nonlinear programming (NLP) problems.
@@ -76,13 +77,17 @@ To install the latest release of PySLSQP on PyPI, run on the terminal or command
 ```sh
 pip install pyslsqp
 ```
+Precompiled wheels for common Ubuntu and macOS architectures are available on PyPI.
+However, if the wheel for your system's architecture is not available, or if you are a Windows user,
+the above installation will compile the source distribution directly on your machine.
+In such scenarios, if your Fortran compilers aren't compatible, you may encounter compilation errors.
 
 To install the latest commit from the main branch, run
 ```sh
 pip install git+https://github.com/anugrahjo/PySLSQP.git@main
 ```
-<!-- Note that this will compile the package locally on your computer.
-Therefore, this is  not recommended unless you are a developer and wants to edit the package for your use. -->
+Note that this installation method will compile the Fortran sources locally on your machine.
+Therefore, we only recommend this method if you are a developer looking to modify the package for your own use case.
 
 To upgrade PySLSQP from an older version to the latest released version on PyPI, run
 ```sh

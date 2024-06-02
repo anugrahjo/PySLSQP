@@ -26,9 +26,9 @@ jobs:
       fail-fast: false
       matrix:
         # macos-11,12,13 are intel runners, macos-14 is apple silicon, no runners for macos-14 with intel x86-64
-        # os: [ubuntu-20.04, ubuntu-22.04, macos-11, macos-12, macos-13, macos-14]
+        os: [ubuntu-20.04, ubuntu-22.04, macos-11, macos-12, macos-13, macos-14]
         # Uncomment the following line for faster testing of the workflow
-        os: [ubuntu-20.04]
+        # os: [ubuntu-20.04]
     
     steps:      
       - name: Checkout the repository to the GitHub runner
@@ -143,8 +143,8 @@ jobs:
         uses: pypa/cibuildwheel@v2.18.1
 
         # Uncomment the following 2 lines for faster testing of the workflow
-        env:
-          CIBW_BUILD: "cp38-* cp312-*"
+        # env:
+        #   CIBW_BUILD: "cp38-* cp312-*"
 
         # env:
         #   CIBW_SOME_OPTION: value
