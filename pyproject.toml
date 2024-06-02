@@ -17,9 +17,9 @@ maintainers = [
 keywords=['slsqp', 'optimization', 'optimization algorithm', 'nlp', 'optimizer', 'nonlinear programming', 'numerical optimization']
 dynamic = ["version"]
 dependencies = [
-  "numpy>=1.16", 
-  "h5py>=2.10", 
-  "matplotlib>=3.4"
+  "numpy>=1.24,<2", 
+  "h5py>=3.11.0,<4", 
+  "matplotlib>=3.4,<4",
 ]
 classifiers=[
   'Development Status :: 4 - Beta',
