@@ -43,14 +43,6 @@ def build_meson():
                 print(f"Copying {from_path} to {to_path}")
                 shutil.copy(from_path, to_path)
 
-        # For windows
-        # for dir in dirs:
-        #     if dir.endswith('.pyd.p'):
-        #         from_path = os.path.join(root, dir)
-        #         to_path = os.path.join(target_path, dir)
-        #         if not os.path.exists(to_path):
-        #             shutil.copytree(from_path, to_path)
-
 # ==================================================================================================
 # The following forces the generated wheels to be platform specific
 # This is necessary because the shared object file is platform specific
@@ -97,5 +89,4 @@ if __name__ == "__main__":
                                         # Basically, you override the 'has_ext_modules' function in the Distribution class, and set distclass to point to the overriding class. 
                                         # At that point, setup.py will believe you have a binary distribution, and will create a wheel with the specific version of python, 
                                         # the ABI, and the current architecture. This is not specific to wheels, and any distribution built with setuptools will be affected.
-        # platforms=["Linux, Windows", "Mac OS X", "Unix", "POSIX", "Any"],
     )
