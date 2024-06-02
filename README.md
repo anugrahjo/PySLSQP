@@ -1,19 +1,15 @@
 # PySLSQP
 
-<!---
-[![Python](https://img.shields.io/pypi/pyversions/PySLSQP)](https://img.shields.io/pypi/pyversions/PySLSQP)
-[![Pypi](https://img.shields.io/pypi/v/PySLSQP)](https://pypi.org/project/PySLSQP/)
-[![PyPI version][10]][11]
-[![PyPI Monthly Downloads][12]][11]
--->
-
 [![GitHub Actions Test Badge](https://github.com/anugrahjo/PySLSQP/actions/workflows/build_install_test.yml/badge.svg)](https://github.com/anugrahjo/PySLSQP/actions)
 [![Coverage Status](https://coveralls.io/repos/github/anugrahjo/PySLSQP/badge.svg?branch=main)](https://coveralls.io/github/anugrahjo/PySLSQP?branch=main)
 [![Documentation Status](https://readthedocs.org/projects/pyslsqp/badge/?version=latest)](https://pyslsqp.readthedocs.io/en/latest/?badge=main)
 [![Pypi version](https://img.shields.io/pypi/v/pyslsqp)](https://pypi.org/project/pyslsqp/)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/anugrahjo/PySLSQP/blob/main/LICENSE.txt)
+<!-- [![PyPI Monthly Downloads][https://img.shields.io/pypi/dm/pyslsqp]][https://pypi.org/project/pyslsqp/] -->
 <!-- [![Forks](https://img.shields.io/github/forks/anugrahjo/PySLSQP.svg)](https://github.com/anugrahjo/PySLSQP/network) -->
 <!-- [![Issues](https://img.shields.io/github/issues/anugrahjo/PySLSQP.svg)](https://github.com/anugrahjo/PySLSQP/issues) -->
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/anugrahjo/PySLSQP/blob/main/LICENSE.txt)
+<!-- [![Python](https://img.shields.io/pypi/pyversions/PySLSQP)](https://img.shields.io/pypi/pyversions/PySLSQP) -->
+<!-- [![Pypi](https://img.shields.io/pypi/v/PySLSQP)](https://pypi.org/project/PySLSQP/) -->
 
 The SLSQP algorithm is designed to solve nonlinear programming (NLP) problems.
 PySLSQP is a Python package that wrraps the original SLSQP algorithm 
@@ -77,10 +73,15 @@ To install the latest release of PySLSQP on PyPI, run on the terminal or command
 ```sh
 pip install pyslsqp
 ```
-Precompiled wheels for common Ubuntu and macOS architectures are available on PyPI.
-However, if the wheel for your system's architecture is not available, or if you are a Windows user,
-the above installation will compile the source distribution directly on your machine.
-In such scenarios, if your Fortran compilers aren't compatible, you may encounter compilation errors.
+
+> **Warning**
+> 
+> Precompiled wheels for common Ubuntu and macOS architectures are available on PyPI.
+  However, if a wheel for your system's architecture is not available, or if you are a Windows user,
+  the above installation will compile the source distribution directly on your machine.
+  In such scenarios, if your Fortran compilers aren't compatible, you may encounter compilation errors.
+  Additional troubleshooting may be required to resolve these errors depending on their specifics.
+
 
 To install the latest commit from the main branch, run
 ```sh
@@ -104,8 +105,7 @@ To test if the package works correctly and as intended, install `pytest` using
 ```sh
 pip install pytest
 ```
-
-and run the following line on the terminal from the project root directory:
+and run the following line on the terminal from the project's root directory:
 ```sh
 pytest -m "not visualize"
 ```
@@ -125,7 +125,7 @@ def objective(v):
     return v[0]**2 + v[1]**2
 
 x0 = np.array([1., 1.])
-# optimize returns a dictionary that contains the results from optimization
+# optimize() returns a dictionary that contains the results from optimization
 results = optimize(x0, obj=objective)
 print(results)
 ```
@@ -135,7 +135,7 @@ using first-order finite differencing.
 However, it is always more efficient for the user to provide the exact gradients.
 Note also that we did not have any constraints or variable bounds in this problem.
 Examples with user-defined gradients, constraints, and bounds
-can be found in the [documentation](https://pyslsqp.readthedocs.io/).
+can be found in the [Basic User Guide](https://pyslsqp.readthedocs.io/en/latest/src/basic.html).
 
 ## Documentation
 For API reference and more details on installation and usage, visit the [documentation](https://pyslsqp.readthedocs.io/).

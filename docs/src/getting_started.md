@@ -23,12 +23,20 @@ To install the latest release of PySLSQP on PyPI, run on the terminal or command
 pip install pyslsqp
 ```
 
+```{Warning}
+Precompiled wheels for common Ubuntu and macOS architectures are available on PyPI.
+However, if a wheel for your system's architecture is not available, or if you are a Windows user,
+the above installation will compile the source distribution directly on your machine.
+In such scenarios, if your Fortran compilers aren't compatible, you may encounter compilation errors.
+Additional troubleshooting may be required to resolve these errors depending on their specifics.
+```
+
 To install the latest commit from the main branch, run
 ```sh
 pip install git+https://github.com/anugrahjo/PySLSQP.git@main
 ```
-<!-- Note that this will compile the package locally on your computer.
-Therefore, this is  not recommended unless you are a developer and wants to edit the package for your use. -->
+Note that this installation method will compile the Fortran sources locally on your machine.
+Therefore, we only recommend this method if you are a developer looking to modify the package for your own use case.
 
 To upgrade PySLSQP from an older version to the latest released version on PyPI, run
 ```sh
@@ -45,8 +53,7 @@ To test if the package works correctly and as intended, install `pytest` using
 ```sh
 pip install pytest
 ```
-
-and run the following line on the terminal from the project root directory:
+and run the following line on the terminal from the project's root directory:
 ```sh
 pytest -m "not visualize"
 ```
@@ -65,7 +72,7 @@ def objective(v):
     return v[0]**2 + v[1]**2
 
 x0 = np.array([1., 1.])
-# optimize returns a dictionary that contains the results from optimization
+# optimize() returns a dictionary that contains the results from optimization
 results = optimize(x0, obj=objective)
 print(results)
 ```
@@ -75,4 +82,4 @@ using first-order finite differencing.
 However, it is always more efficient for the user to provide the exact gradients.
 Note also that we did not have any constraints or variable bounds in this problem.
 Examples with user-defined gradients, constraints, and bounds
-can be found in the upcoming sections.
+can be found in the [Basic User Guide](./basic.ipynb).

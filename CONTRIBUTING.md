@@ -17,17 +17,22 @@ See below for more details on submitting pull requests.
 To contribute to PySLSQP:
 1. First fork PySLSQP to create your own separate copy of the `PySLSQP` repository.
 2. Clone your fork locally by running `git clone https://github.com/your_username/PySLSQP.git`.
-3. Install PySLSQP in development mode by running `pip install -e .` at the project root directory.
-4. Make a new branch for local development by running `git checkout -b name-of-your-bugfix-or-feature`.
-5. Make the necessary changes to your code locally. Add tests, comments, docstrings, and documentation, if needed.
-6. After ensuring all tests pass and the documentation builds as intended, 
+3. Ideally, create a virtual Python environment (`python3 -m venv pyslsqp_env`), 
+   activate it (`source pyslsqp_env/bin/activate` or `.\pyslsqp_env\Scripts\activate` for Windows),
+   and perform the remaining steps within the created virtual environment.
+4. Install development dependencies by running `pip install -r requirements.txt`.
+5. Install PySLSQP in development mode by running `pip install -e .` in the project's root directory.
+   For a successful installation, ensure your Fortran compilers are setup correctly.
+6. Make a new branch for local development by running `git checkout -b name-of-your-bugfix-or-feature`.
+7. Make the necessary changes to your code locally. Add tests, comments, docstrings, and documentation, if needed.
+8.  After ensuring all tests pass and the documentation builds as intended, 
    commit your changes and push your branch to GitHub:
     ```sh
     git add .
     git commit -m "A detailed description of your changes."
     git push origin name-of-your-bugfix-or-feature
     ```
-7. Submit a pull request to the main branch of the `PySLSQP` repository on the GitHub website for review and
+9.  Submit a pull request to the main branch of the `PySLSQP` repository on the GitHub website for review and
    incorporation of your changes into the main repository.
 
 ## Pull Requests
@@ -38,7 +43,8 @@ Before contributing to the `main` branch, ensure the following requirements are 
 - [ ] Code is commented
 - [ ] Added tests for new features
 
-Once you finish making changes on your fork, create a pull request on GitHub with the descriptions of changes.
+Once you finish making changes on your fork, create a pull request on GitHub with 
+a description of the changes.
 Make sure to fill out the pull request template and assign reviewers (repo admin(s)).
 <!-- To create the pull request, follow the steps:
 
@@ -73,13 +79,13 @@ A submitted pull request will be approved after review if:
  - GitHub actions tests pass
  - The code runs locally on the reviewer's computer (ideally after running new cases to try and break the new code)
 
-When rejecting a pull request, a precise description of what needs to 
+When rejecting a pull request, a precise description of what needs to be
 improved/fixed will be provided in the comment section.
 
 ## Testing
 For test-driven development, create tests before implementing code.
 Create test files with names starting with `test_` in the `tests` directory and 
-write test functions with `test_` prefix in the test files.
+write test functions with the `test_` prefix in the test files.
 To run the tests, install `pytest` with 
 ```sh
 pip install pytest
@@ -99,22 +105,41 @@ pytest --cov=pyslsqp --cov-report html    # detailed coverage report generated a
 on the terminal or command line at the project root directory.
 
 ## Documentation
-After you have made your changes to the code and tested them successfully, make sure to add any
-documentation necessary to guide users to start using the new features.
-This could be done by including docstrings and comments in your new code.
-Additionally, you can include new documentation pages and/or text/code examples to existing documentation
-written in the `./docs/src` folder, if you have made new additions to the API.
-New pages can be written using markdown or Jupyter notebooks, as per the
-developer's preferences.
+After making changes to the code and testing them successfully, 
+ensure you add any necessary documentation to guide users in using the new features.
+This can be done by including docstrings and comments in your new code.
+Additionally, if you have made new additions to the API, you can create new documentation pages 
+and/or add text or code examples to existing documentation in the `./docs/src` folder.
+New pages can be written using Markdown or Jupyter notebooks, according to the
+developer's preference.
 
-To build the documentation locally, you need to first install the following dependencies:
-```sh
-pip install sphinx myst-nb sphinx_rtd_theme sphinx-copybutton sphinx-autoapi numpydoc sphinxcontrib-bibtex
+Before building the documentation locally, ensure that you have installed all the development dependencies
+as stated in step 4 by using `pip install -r requirements.txt`.
+Once you have written all the source code for your documentation, 
+build the new documentation on your system by navigating to the `./docs` folder and running `make html`.
+This will build all the HTML pages locally, and you can verify if the documentation was built as intended by
+opening `docs/_build/html/index.html` on your web browser.
+
+## Versioning
+PySLSQP follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html), summarized below:
+
+```{code-block} none
+Given a version number MAJOR.MINOR.PATCH, increment the:
+
+ 1. MAJOR version when you make incompatible API changes.
+ 2. MINOR version when you add functionality in a backward compatible manner.
+ 3. PATCH version when you make backward compatible bug fixes.
+
+ Additional labels for pre-release and build metadata can be included as extensions 
+ to the MAJOR.MINOR.PATCH format.
+
+ 1. A pre-release version MAY be denoted by appending a hyphen and a series of 
+    dot separated identifiers immediately following the patch version, 
+    e.g., 1.0.0-alpha.1 .
+ 2. Build metadata MAY be denoted by appending a plus sign and a series of 
+    dot separated identifiers immediately following the patch or pre-release version, 
+    e.g., 1.0.0-alpha.1+001 .
 ```
-Once all the source code is written for your documentation, 
-build the new documentation on your system by going into the `./docs` folder and running `make html`.
-This will build all the html pages locally and you can verify if the documentation was built as intended by
-opening the `docs/_build/html/index.html` on your web browser.
 
 ## License
 By contributing to PySLSQP, you agree to make anything contributed to the repository available 
