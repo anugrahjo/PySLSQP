@@ -88,7 +88,7 @@ Create test files with names starting with `test_` in the `tests` directory and
 write test functions with the `test_` prefix in the test files.
 To run the tests, install `pytest` with 
 ```sh
-pip install pytest
+pip install pytest pytest-cov
 ``` 
 and run any one of the following lines
 ```sh

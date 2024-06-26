@@ -1,5 +1,5 @@
 # List of all dependencies required to host the documentation on Read the Docs
-# Currently fixed to the lastest versions that were compatible at the time of writing
+# Currently fixed to the latest versions that were compatible at the time of writing
 
 # For the documentation
 sphinx==7.3.7
