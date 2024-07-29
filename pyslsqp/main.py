@@ -882,8 +882,8 @@ def optimize(x0, obj=None, grad=None,
         else:
             print("            Number of function evaluations       : {:d}".format(prob.nfev))
             print("            Number of derivative evaluations     : {:d}".format(prob.ngev))
-        print("            Average Derivative evaluation time   : {:.6f} s per evaluation".format(prob.fev_time/prob.nfev))
-        print("            Average Function evaluation time     : {:.6f} s per evaluation".format(prob.gev_time/prob.ngev))
+        print("            Average Function evaluation time     : {:.6f} s per evaluation".format(prob.fev_time/prob.nfev))
+        print("            Average Derivative evaluation time   : {:.6f} s per evaluation".format(prob.gev_time/prob.ngev))
         print("            Total Function evaluation time       : {:.6f} s [{:6.2f}%]".format(prob.fev_time, prob.fev_time/total_time*100))
         print("            Total Derivative evaluation time     : {:.6f} s [{:6.2f}%]".format(prob.gev_time, prob.gev_time/total_time*100))
         print("            Optimizer time                       : {:.6f} s [{:6.2f}%]".format(opt_time, opt_time/total_time*100))
