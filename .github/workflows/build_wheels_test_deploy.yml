@@ -17,8 +17,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # macos-11,12,13 are intel runners, macos-14 is apple silicon, no runners for macos-14 with intel x86-64
-        os: [ubuntu-22.04, macos-11, macos-12, macos-13, macos-14]
+        # macos-12,13 are intel runners, macos-14 is apple silicon, no runners for macos-14 with intel x86-64
+        os: [ubuntu-22.04, macos-12, macos-13, macos-14]
         # Uncomment the following line for faster testing of the workflow
         # os: [ubuntu-22.04]
     
@@ -29,14 +29,6 @@ jobs:
       - name: Setup GNU Fortran
         if: false == contains( matrix.os, 'windows')
         uses: awvwgk/setup-fortran@v1
-
-      # The macos-11 label has been deprecated and will no longer be available after 6/28/2024.
-      # macos-11 wheels are only generated and tested for tags starting with 'v'
-      - name: Build macos-11 wheels
-        if: contains( matrix.os, 'macos-11') && startsWith(github.ref, 'refs/tags/v')
-        uses: pypa/cibuildwheel@v2.18.1
-        env:
-          CIBW_ENVIRONMENT_MACOS: MACOSX_DEPLOYMENT_TARGET="11.0"
 
       # macos-12 wheels are only generated and tested for tags starting with 'v'
       - name: Build macos-12 wheels
