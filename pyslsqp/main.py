@@ -325,8 +325,8 @@ def optimize(x0, obj=None, grad=None,
                 Number of major iterations           : 2
                 Number of function evaluations       : 2
                 Number of derivative evaluations     : 2
-                Average Derivative evaluation time   : ... s per evaluation
                 Average Function evaluation time     : ... s per evaluation
+                Average Derivative evaluation time   : ... s per evaluation
                 Total Function evaluation time       : ... s [ ...%]
                 Total Derivative evaluation time     : ... s [ ...%]
                 Optimizer time                       : ... s [ ...%]
@@ -347,8 +347,8 @@ def optimize(x0, obj=None, grad=None,
                 Number of major iterations           : 2
                 Number of function evaluations       : 2
                 Number of derivative evaluations     : 2
-                Average Derivative evaluation time   : ... s per evaluation
                 Average Function evaluation time     : ... s per evaluation
+                Average Derivative evaluation time   : ... s per evaluation
                 Total Function evaluation time       : ... s [ ...%]
                 Total Derivative evaluation time     : ... s [ ...%]
                 Optimizer time                       : ... s [ ...%]
