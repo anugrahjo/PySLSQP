@@ -137,6 +137,10 @@ def load_variables(filepath, vars, itr_start=0, itr_end=-1, major_only=False):
         Path to the saved file.
     vars : str or list
         Variable names to load from the saved file.
+        If only specific scalar variables are needed from an array, 
+        use the format 'var_name[idx]'.
+        For example, 'x[0]' will load the iterates for the first element of the array 'x', and
+        'jacobian[i,j]' will load the iterates for the (i,j)-th element of the array 'jacobian'.
     itr_start : int, default=0
         Starting iteration to load the variables from.
         Negative indices are allowed with -1 representing the last iteration
