@@ -110,9 +110,12 @@ with up to a hundred optimization variables and constraints.
 Additionally, SLSQP is more successful compared to some of the most advanced algorithms in 
 solving certain classes of optimization problems, such as optimal control problems with a coarse discretization in time.
 
-![Performance comparison for an optimal control problem. \label{fig:perf}](starship_20_jax-objective-cb.pdf) {width=80%}
+![Performance comparison for an optimal control problem.](starship_20_jax-objective-cb.pdf)
 
-The plot \autoref{fig:perf} above compares the convergence behaviors of `PySLSQP` and 
+<!-- ![Performance comparison for an optimal control problem. \label{fig:perf}](starship_20_jax-objective-cb.pdf) -->
+<!-- Figure [\autoref{fig:perf}] above compares the convergence behaviors of `PySLSQP` and  -->
+
+Figure 1 above compares the convergence behaviors of `PySLSQP` and 
 some of the most advanced algorithms in nonlinear programming on a coarsely discretized optimal control problem.
 The problem aims to compute the optimal control parameters for a spacecraft landing scenario.
 The total number of function evaluations is indicated within parentheses in the legend.
