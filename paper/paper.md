@@ -110,8 +110,10 @@ with up to a hundred optimization variables and constraints.
 Additionally, SLSQP is more successful compared to some of the most advanced algorithms in 
 solving certain classes of optimization problems, such as optimal control problems with a coarse discretization in time.
 
-The plot below compares the convergence behaviors of `PySLSQP` and some of the most advanced algorithms
-in nonlinear programming on a coarsely discretized optimal control problem.
+![Performance comparison for an optimal control problem. \label{fig:perf}](starship_20_jax-objective-cb.pdf) {width=80%}
+
+The plot \autoref{fig:perf} above compares the convergence behaviors of `PySLSQP` and 
+some of the most advanced algorithms in nonlinear programming on a coarsely discretized optimal control problem.
 The problem aims to compute the optimal control parameters for a spacecraft landing scenario.
 The total number of function evaluations is indicated within parentheses in the legend.
 We see that `PySLSQP` is the only algorithm that solves the problem
@@ -123,7 +125,6 @@ does not satisfy the feasibility criteria.
 This underscores the relevance of SLSQP even today among state-of-the-art optimization algorithms.
 This problem is taken from the suite of examples in the modOpt [@modopt] optimization library.
 
-![Optimal control problem.\label{fig:example}](starship_20_jax-objective-cb.png)<!-- {width=20%} -->
 
 There are several optimization libraries in Python that include the SLSQP algorithm,
 such as SciPy [@virtanen2020scipy], NLOpt [@NLopt], and pyOpt [@perez2012pyopt].

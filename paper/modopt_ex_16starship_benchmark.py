@@ -116,16 +116,22 @@ if __name__ == '__main__':
 
     algs = ['PySLSQP', 'SNOPT', 'TrustConstr', 'IPOPT']
 
+    plt.rcParams['xtick.labelsize']=12
+    plt.rcParams['ytick.labelsize']=12
+
     plt.figure()
     for alg in algs:
         y_data = history[prob.problem_name, alg]
         plt.semilogy(y_data, label=f"{alg} ({len(y_data)})")
-    plt.xlabel('Evaluations')
-    plt.ylabel('Objective')
+    plt.xlabel('Evaluations', fontsize=14)
+    plt.ylabel('Objective', fontsize=14)
+    # plt.xticks(fontsize=12)
+    # plt.yticks(fontsize=12)
     # plt.title(f'{prob.problem_name} minimization')
-    plt.legend()
+    plt.legend(fontsize=12)
     plt.grid()
-    plt.savefig(f"{prob.problem_name}-objective-cb.png")
+    plt.savefig(f"{prob.problem_name}-objective-cb.pdf", bbox_inches='tight')
+    plt.savefig(f"{prob.problem_name}-objective-cb.png", dpi=300, bbox_inches='tight')
     plt.close()
 
     # Print performance

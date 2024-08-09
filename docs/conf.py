@@ -28,7 +28,7 @@ __version__ = get_version_string('../pyslsqp/__init__.py')
 # -- Project information -----------------------------------------------------
 
 project = 'PySLSQP'
-copyright = '2024, Anugrah'
+copyright = '2024, Anugrah Jo Joshy'
 author = 'Anugrah'
 version = __version__
 release = __version__
