@@ -9,7 +9,7 @@ tags:
 authors:
   - name: Anugrah Jo Joshy
     orcid: 0000-0000-0000-0000
-    corresponding: true
+    # corresponding: true
     affiliation: 1
   - name: John T. Hwang
     affiliation: 2
@@ -22,6 +22,8 @@ date: 6 August 2024
 bibliography: paper.bib
 ---
 
+<!-- To compile locally: pandoc paper.md --bibliography=paper.bib --natbib -o paper.pdf -->
+
 # Summary
 
 Nonlinear programming (NLP) addresses optimization problems involving nonlinear objective 
@@ -32,8 +34,6 @@ optimizing portfolios in finance and training models in machine learning.
 Sequential Quadratic Programming (SQP) is one of the most successful classes of algorithms for solving NLP problems.
 Sequential Quadratic Programming solves an NLP problem by iteratively formulating and 
 solving a sequence of Quadratic Programming (QP) subproblems.
-<!-- Nonlinear programming has a wide range of applications, including but not limited to aircraft design, 
-wind turbine and farm design, satellite design, and optimal control. -->
 
 
 The Sequential Least SQuares Programming algorithm, or SLSQP, has been one of the 
