@@ -132,7 +132,7 @@ class Visualizer:
         v_start = time.time()
         # plt.gcf().set_size_inches(10, 3*len(self.visualize_vars))
         # self.fig.set_size_inches(10, 3*len(self.visualize_vars), forward=True)
-        self.fig.savefig(save_figname,)
+        self.fig.savefig(save_figname, bbox_inches='tight')
         self.vis_time += time.time() - v_start
 
     def close_plot(self):
