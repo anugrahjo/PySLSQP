@@ -66,7 +66,8 @@ if __name__ == '__main__':
     # PySLSQP
     alg = 'PySLSQP'
     print(f'\t{alg} \n\t------------------------')
-    optimizer = PySLSQP(prob, solver_options={'maxiter': 200, 'acc': 1e-6, 'iprint': 0}, 
+    optimizer = PySLSQP(prob, 
+                        solver_options={'maxiter': 200, 'acc': 1e-6, 'iprint': 0, 'visualize': True, 'visualize_vars': ['objective', 'feasibility']}, 
                         recording=True)
     start_time = time.time()
     results = optimizer.solve()
@@ -79,7 +80,7 @@ if __name__ == '__main__':
     alg = 'SNOPT'
     print(f'\t{alg} \n\t------------------------')
     optimizer = SNOPT(prob, solver_options={'Major iterations': 200, 'Major optimality': 1e-7, 'Verbose': False},
-                        recording=True)
+                      recording=True)
 
     start_time = time.time()
     results = optimizer.solve()
@@ -122,7 +123,7 @@ if __name__ == '__main__':
     plt.figure()
     for alg in algs:
         y_data = history[prob.problem_name, alg]
-        plt.semilogy(y_data, label=f"{alg} ({len(y_data)})")
+        plt.plot(y_data, label=f"{alg} ({len(y_data)})")
     plt.xlabel('Evaluations', fontsize=14)
     plt.ylabel('Objective', fontsize=14)
     # plt.xticks(fontsize=12)

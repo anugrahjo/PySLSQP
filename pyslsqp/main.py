@@ -819,10 +819,29 @@ def optimize(x0, obj=None, grad=None,
         out_dict['gradient'] = g[:-1]
         out_dict['multipliers'] = w[wref:wref+m]
         out_dict['jacobian'] = a[:, :-1]
-        out_dict['optimality'] = h1
-        # out_dict['feasibility'] = h2
+        out_dict['optimality'] = h1    # Optimality from Fortran SLSQP
+        # out_dict['feasibility'] = h2 # Feasibility from Fortran SLSQP
         out_dict['feasibility'] = feas_calc = np.sum(np.abs(c[:meq])) + np.sum(np.maximum(0, -c[meq:]))
         out_dict['step'] = alpha
+
+        ########### BETTER OPTIMALITY AND FEASIBILITY CALCULATION ###########
+        # # The following optimality calculation ignores Lagrange multipliers for variable bounds
+        # # since SLSQP does not calculate them. They are just set to NaN in the Fortran code.
+        # opt_lmults = 0.0
+        # opt_compl  = 0.0
+        # max_lmult  = 0.0
+        # if m != 0:
+        #     if meq != m:
+        #         opt_lmults = np.max(np.maximum(0, -w[wref+meq:wref+m])) # Nonnegativity of multipliers for inequality constraints
+        #     opt_compl  = np.max(np.abs(w[wref:wref+m]*c[:m]))  # Complementarity condition for all constraints
+        #     # opt_lgrad  = np.max(np.abs(g[:-1] - a[:, :-1].T @ w[wref:wref+m])) # Lagrangian gradient optimality condition (missing bound multipliers)
+        #     max_lmult  = np.max(np.abs(w[wref:wref+m])) # Maximum Lagrange multiplier for constraints
+        # out_dict['optimality'] = opt_calc = max(opt_lmults, opt_compl) / (1 + max_lmult) # Optimality measure
+
+        # A different feasibility measure that normalizes the max. constraint violation by the maximum of the absolute values of x
+        # max_constraint_violation = np.max(np.concatenate((np.abs(c[:meq]), np.maximum(0, -c[meq:]))))
+        # out_dict['feasibility'] = feas_calc = max_constraint_violation / (1 + np.max(np.abs(x))) # Normalized feasibility
+        ########################################################################
 
         if save_itr == 'all':
             save_iteration(file, iter, save_vars, out_dict)
