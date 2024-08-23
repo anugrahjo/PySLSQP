@@ -1,5 +1,5 @@
 ---
-title: '`PySLSQP`: A transparent Python package for the SLSQP optimization algorithm, 
+title: '`PySLSQP`: A transparent Python package for the SLSQP optimization algorithm 
 modernized with utilities for visualization and post-processing'
 # modernized with utilities for scaling, recording, restarting, visualization, and post-processing'
 tags:
@@ -112,7 +112,7 @@ with up to a hundred optimization variables and constraints.
 Additionally, SLSQP is more successful compared to some of the most advanced algorithms in 
 solving certain classes of optimization problems, such as optimal control problems with a coarse discretization in time.
 
-![Performance comparison for an optimal control problem.](starship_20_jax-objective-cb.pdf)
+![Performance comparison for an optimal control problem.](starship_20_jax-objective-cb.pdf){ width=90% }
 
 <!-- ![Performance comparison for an optimal control problem. \label{fig:perf}](starship_20_jax-objective-cb.pdf) -->
 <!-- Figure [\autoref{fig:perf}] above compares the convergence behaviors of `PySLSQP` and  -->
