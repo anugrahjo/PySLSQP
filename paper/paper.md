@@ -160,7 +160,7 @@ Lagrange multipliers, etc. enables further analysis of an ongoing or completed o
 `PySLSQP` also features additional utilities for numerical differentiation, 
 scaling, warm/hot restarting, and post-processing.
 
-By addressing the current limitations and providing new capabilities, `PySLSQP` enhances the transparency and usability  
+By addressing the current limitations and providing new capabilities, `PySLSQP` enhances the transparency and usability
 of the SLSQP algorithm, making it a more powerful and user-friendly tool for solving nonlinear programming problems.
 `PySLSQP` is now interfaced with the modOpt [@modopt] library of optimizers, through which it has successfully
 solved problems in aircraft design, as well as aircraft and spacecraft optimal control.
