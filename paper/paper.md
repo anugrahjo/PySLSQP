@@ -10,7 +10,7 @@ tags:
   - algorithm
 authors:
   - name: Anugrah Jo Joshy
-    orcid: 0000-0000-0000-0000
+    orcid: 0009-0003-7704-2532
     # corresponding: true
     affiliation: 1
   - name: John T. Hwang
