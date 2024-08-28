@@ -49,7 +49,7 @@ To install and start using PySLSQP, please read the [Getting Started](src/gettin
 ## Citation
 If you use PySLSQP in your work, please use the following reference for citation:
 
-```
+```bibtex
 @article{joshy2024pyslsqp,
   title={PySLSQP: A transparent Python package for the SLSQP optimization algorithm modernized with utilities for visualization and post-processing},
   author={Joshy, Anugrah Jo and Hwang, John T},
