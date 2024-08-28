@@ -144,11 +144,12 @@ For API reference and more details on installation and usage, visit the [documen
 If you use PySLSQP in your work, please use the following reference for citation:
 
 ```
-@Misc{pyslsqp,
-author = "Anugrah Jo Joshy",
-title = "PySLSQP",
-howpublished = "\url{https://github.com/anugrahjo/PySLSQP}",
-year = "2024",
+@article{joshy2024pyslsqp,
+  title={PySLSQP: A transparent Python package for the SLSQP optimization algorithm modernized with utilities for visualization and post-processing},
+  author={Joshy, Anugrah Jo and Hwang, John T},
+  journal={arXiv preprint},
+  year={2024},
+  doi= {10.48550/arXiv.2408.13420},
 }
 ```
 
