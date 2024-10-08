@@ -125,6 +125,10 @@ jobs:
         python -m pip install pytest
         python -m pip install -e .  # Install the package in editable mode, "pip install ." did not seem to copy the compiled files to the site-packages directory
         # cat meson_builddir/meson-logs/meson-log.txt
+        ls .
+        ls meson_builddir
+        ls meson_builddir/pyslsqp
+        ls pyslsqp
 
     # - name: Download Dependencies Tool
     #   run: |
