@@ -123,6 +123,12 @@ jobs:
       run: | 
         python -m pip install --upgrade pip
         python -m pip install pytest
+        cd pyslsqp/slsqp
+        python -m numpy.f2py -c slsqp.pyf slsqp_optmz.f
+        cd ../..
+        echo "----------------------------------------"
+        ls -R .
+        echo "----------------------------------------"
         python -m pip install -e .  # Install the package in editable mode, "pip install ." did not seem to copy the compiled files to the site-packages directory
         echo "----------------------------------------"
         cat meson_builddir/meson-logs/meson-log.txt
