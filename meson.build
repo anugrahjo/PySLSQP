@@ -26,4 +26,17 @@ incdir_f2py = run_command(py,
 
 inc_np = include_directories(incdir_numpy, incdir_f2py)
 
+fortranobject_c = incdir_f2py / 'fortranobject.c'
+
+# Share this object across multiple modules.
+fortranobject_lib = static_library('_fortranobject',
+  fortranobject_c,
+  dependencies: py_dep,
+  include_directories: inc_np,
+)
+fortranobject_dep = declare_dependency(
+  link_with: fortranobject_lib,
+  include_directories: inc_np,
+)
+
 subdir('pyslsqp')

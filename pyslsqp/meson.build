@@ -8,7 +8,7 @@ py.extension_module('_slsqp',
   ['slsqp/slsqp_optmz.f', slsqp_source],      # Source files for the extension module
   incdir_f2py / 'fortranobject.c',            # Include directories or additional files
   include_directories: inc_np,                # Include directories for dependencies
-  dependencies : py_dep,                      # Dependency objects (like libraries)
+  dependencies : fortranobject_dep,           # Dependency objects (like libraries)
   subdir : 'pyslsqp/',                        # Subdirectory for organizing the source
   link_language: 'fortran',                   # For meson to generate the linked .dll files for Windows
   install : false                             # Do not install this module when running `meson install`
