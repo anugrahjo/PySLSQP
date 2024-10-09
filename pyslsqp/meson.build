@@ -10,6 +10,7 @@ py.extension_module('_slsqp',
   include_directories: inc_np,                # Include directories for dependencies
   dependencies : py_dep,                      # Dependency objects (like libraries)
   subdir : 'pyslsqp/',                        # Subdirectory for organizing the source
+  link_language: 'fortran',                   # For meson to generate the linked .dll files for Windows
   install : false                             # Do not install this module when running `meson install`
 )                                             # Use `install=True` when you want the compiled module, executable, or other target to be part of the final installation. 
                                               # This is common for finished products or components that need to be available system-wide or within a specified environment.
