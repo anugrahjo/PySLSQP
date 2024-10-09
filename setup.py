@@ -76,7 +76,29 @@ if __name__ == "__main__":
     # This prevents the Fortran compilation using Meson from happening when generating the source distribution.
     # But it will still be executed when installing the package from the source distribution or building the wheel distribution.
     if not ('sdist' in sys.argv or 'egg_info' in sys.argv):
-        build_meson()
+
+        # Workaround for meson build failing to produce .dll on Windows
+        if platform.system() == "Windows":
+            original_dir = os.getcwd()
+            os.chdir('pyslsqp/slsqp')
+            subprocess.run(['python', '-m', 'numpy.f2py', '-c', 'slsqp.pyf', 'slsqp_optmz.f'], check=True)
+            os.chdir(original_dir)
+
+            build_path  = os.path.join(os.getcwd(), 'pyslsqp', 'slsqp')
+            target_path = os.path.join(os.getcwd(), 'pyslsqp')
+
+            for root, dirs, files in os.walk(build_path):
+                for file in files:
+                    if file.endswith((".so", ".lib", ".pyd", ".pdb", ".dylib", ".dll")):
+                        if ".so.p" in root or ".pyd.p" in root:  # excludes intermediate object files in .p directories
+                            continue
+                        from_path = os.path.join(root, file)
+                        to_path = os.path.join(target_path, file)
+                        print(f"Copying {from_path} to {to_path}")
+                        shutil.copy(from_path, to_path)
+        
+        else:
+            build_meson()
 
     setup(
         include_package_data=True,
