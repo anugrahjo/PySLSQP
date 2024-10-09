@@ -124,6 +124,7 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install pytest
         cd pyslsqp/slsqp
+        pip install numpy
         python -m numpy.f2py -c slsqp.pyf slsqp_optmz.f
         cd ../..
         echo "----------------------------------------"
