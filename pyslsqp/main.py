@@ -62,12 +62,12 @@ class Problem:
         Compute the objective and constraints at the given x, if x is different from the previous x.
         '''
         if not np.array_equal(x, self.warm_x):
-            f_start = time.time()
+            f_start = time.perf_counter()
             self.f = self.obj(x)
             self.c = self.con(x)
             self.warm_x = x * 1.0
             self.nfev += 1
-            self.fev_time += time.time() - f_start
+            self.fev_time += time.perf_counter() - f_start
         return self.f, self.c
 
     def _derivs(self, x):
@@ -75,12 +75,12 @@ class Problem:
         Compute the gradient and Jacobian at the given x, if x is different from the previous x.
         '''
         if not np.array_equal(x, self.warm_x_derivs):
-            g_start = time.time()
+            g_start = time.perf_counter()
             self.g = self.grad(x)
             self.j = self.jac(x)
             self.warm_x_derivs = x * 1.0
             self.ngev += 1
-            self.gev_time += time.time() - g_start
+            self.gev_time += time.perf_counter() - g_start
         return self.g, self.j
 
     
@@ -360,7 +360,7 @@ def optimize(x0, obj=None, grad=None,
     array([0.1, 0.2])
 
     """
-    main_start = time.time()
+    main_start = time.perf_counter()
     import copy
 
     in_xl = copy.copy(xl)
@@ -755,12 +755,12 @@ def optimize(x0, obj=None, grad=None,
 
         iter += 1
         # Call SLSQP
-        opt_start = time.time()
+        opt_start = time.perf_counter()
         slsqp(m, meq, x_scaled, xl_scaled, xu_scaled, fx_scaled, c_scaled, g_scaled, a_scaled, acc, majiter, mode, w, jw,
               alpha, f0, gs, h1, h2, h3, h4, t, t0, tol,
               iexact, incons, ireset, itermx, line,
               n1, n2, n3)
-        opt_time += time.time() - opt_start
+        opt_time += time.perf_counter() - opt_start
 
         if majiter > majiter_prev and majiter != majiter_prev + 1:
             warnings.warn(f"SLSQP Bug: Major iteration counter jumped from {majiter_prev} to {majiter}. Resetting to {majiter_prev + 1}.")
@@ -885,7 +885,7 @@ def optimize(x0, obj=None, grad=None,
             visualizer.close_plot()
         vis_time = visualizer.vis_time   
 
-    total_time = time.time() - main_start - vis_wait
+    total_time = time.perf_counter() - main_start - vis_wait
     processing_time = total_time - prob.fev_time - prob.gev_time - vis_time - opt_time
 
     # Optimization loop complete. Print summary if iprint >= 1

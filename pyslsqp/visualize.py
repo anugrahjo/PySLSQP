@@ -41,7 +41,7 @@ class Visualizer:
             Name of the file to save the plot.
         '''
 
-        v_start = time.time()
+        v_start = time.perf_counter()
         if plt is None:
             raise ImportError("matplotlib not found, cannot visualize.")
         self.visualize_vars = visualize_vars
@@ -72,7 +72,7 @@ class Visualizer:
         self.lines_dict = lines_dict
         self.var_dict = var_dict
 
-        self.vis_time = time.time() - v_start
+        self.vis_time = time.perf_counter() - v_start
         self.wait_time = 0.0
 
     def update_plot(self, out_dict):
@@ -92,7 +92,7 @@ class Visualizer:
             - 'multipliers' : the Lagrange multiplier values
         '''
 
-        v_start = time.time()
+        v_start = time.perf_counter()
         x_data = np.arange(out_dict['majiter']+1)
         for k, var in enumerate(self.visualize_vars):
             if var in ['objective', 'optimality', 'feasibility']:
@@ -123,17 +123,17 @@ class Visualizer:
         self.fig.canvas.draw()
         self.fig.canvas.flush_events()
 
-        self.vis_time += time.time() - v_start
+        self.vis_time += time.perf_counter() - v_start
         
     def save_plot(self, save_figname):
         '''
         Save the plot to a file.
         '''
-        v_start = time.time()
+        v_start = time.perf_counter()
         # plt.gcf().set_size_inches(10, 3*len(self.visualize_vars))
         # self.fig.set_size_inches(10, 3*len(self.visualize_vars), forward=True)
         self.fig.savefig(save_figname, bbox_inches='tight')
-        self.vis_time += time.time() - v_start
+        self.vis_time += time.perf_counter() - v_start
 
     def close_plot(self):
         '''
@@ -150,10 +150,10 @@ class Visualizer:
         '''
         self.save_plot(self.save_figname)
 
-        w_start = time.time()
+        w_start = time.perf_counter()
         plt.ioff()
         plt.show()
-        self.wait_time += time.time() - w_start
+        self.wait_time += time.perf_counter() - w_start
 
 
 def visualize(savefilename, visualize_vars, itr_start=0, itr_end=-1, major_only=False, save_figname=None):
@@ -227,7 +227,7 @@ def visualize(savefilename, visualize_vars, itr_start=0, itr_end=-1, major_only=
     >>> visualize('slsqp_recorder.hdf5', ['objective', 'optimality', 'x[0]', 'x[1]'], major_only=True)
     '''
 
-    v_start = time.time()
+    v_start = time.perf_counter()
     if plt is None:
         raise ImportError("matplotlib not found, cannot visualize.")
     from pyslsqp.postprocessing import load_variables
@@ -255,7 +255,7 @@ def visualize(savefilename, visualize_vars, itr_start=0, itr_end=-1, major_only=
     if save_figname is not None:
         fig.savefig(save_figname)
     plt.show()
-    vis_time = time.time() - v_start
+    vis_time = time.perf_counter() - v_start
 
 if __name__ == '__main__':
     import doctest
