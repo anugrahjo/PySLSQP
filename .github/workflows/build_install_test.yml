@@ -133,9 +133,9 @@ jobs:
         python -m pip install -e .  # Install the package in editable mode, "pip install ." did not seem to copy the compiled files to the site-packages directory
         # echo "----------------------------------------"
         # cat meson_builddir/meson-logs/meson-log.txt
-        # echo "----------------------------------------"
-        # ls -R .
-        # echo "----------------------------------------"
+        echo "----------------------------------------"
+        ls -R .
+        echo "----------------------------------------"
         # ls meson_builddir
         # echo "----------------------------------------"
         # ls meson_builddir/pyslsqp
