@@ -79,7 +79,7 @@ if __name__ == "__main__":
 
         # Workaround for meson build failing to produce .dll on Windows
         if platform.system() == "Windows":
-            if not "FC" in os.environ:
+            if not "FC" in os.environ: # Set the environment variables in Windows for the meson/Fortran compiler to use
                 os.environ["FC"] = "gfortran"
             if not "CC" in os.environ:
                 os.environ["CC"] = "gcc"
