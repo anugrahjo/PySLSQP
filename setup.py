@@ -83,10 +83,10 @@ if __name__ == "__main__":
                 os.environ["FC"] = "gfortran"
             if not "CC" in os.environ:
                 os.environ["CC"] = "gcc"
-                
+
             original_dir = os.getcwd()
             os.chdir('pyslsqp/slsqp')
-            subprocess.run(['python', '-m', 'numpy.f2py', '-c', 'slsqp.pyf', 'slsqp_optmz.f'], check=True)
+            subprocess.run(['python', '-m', 'numpy.f2py', '-c', 'slsqp.pyf', 'slsqp_optmz.f', '--backend', 'meson'], check=True)
             os.chdir(original_dir)
 
             build_path  = os.path.join(os.getcwd(), 'pyslsqp', 'slsqp')
