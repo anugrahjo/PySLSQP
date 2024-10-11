@@ -85,3 +85,6 @@ build-frontend = { name = "build", args = ["--wheel"] }
 # before-build = "pip install wheel numpy ninja setuptools meson meson-python wheel" # This is required if we call build with --no-isolation above
 test-requires = "pytest"
 test-command = 'pytest {project}/tests -m "not visualize"'
+
+[tool.cibuildwheel.windows]
+skip = ['cp38-*']
