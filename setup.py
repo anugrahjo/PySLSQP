@@ -76,8 +76,7 @@ if __name__ == "__main__":
     # This prevents the Fortran compilation using Meson from happening when generating the source distribution.
     # But it will still be executed when installing the package from the source distribution or building the wheel distribution.
     if not ('sdist' in sys.argv or 'egg_info' in sys.argv):
-
-        # Workaround for meson build failing to produce .dll on Windows
+        # Workaround for build_meson() failing on Windows (seems like .pyd is corrupted and no .dll generated)
         if platform.system() == "Windows":
             if not "FC" in os.environ: # Set the environment variables in Windows for the meson/Fortran compiler to use
                 os.environ["FC"] = "gfortran"

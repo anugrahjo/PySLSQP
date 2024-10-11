@@ -81,8 +81,7 @@ jobs:
       run: |
         pytest
 
-  # build-and-test-windows:
-  build-windows:
+  build-and-test-windows:
     runs-on: windows-2022
 
     defaults:
@@ -92,8 +91,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
-        python-version: [ "3.10",]
+        python-version: ["3.8", "3.10", "3.12"]
 
     steps:
     # - name: Install mingw-w64 for Windows
@@ -125,7 +123,7 @@ jobs:
         python -m pip install pytest
         # cd pyslsqp/slsqp
         # pip install numpy
-        # python -m numpy.f2py -c slsqp.pyf slsqp_optmz.f
+        # python -m numpy.f2py -c slsqp.pyf slsqp_optmz.f # uses distutils if numpy<2.0
         # cd ../..
         # echo "----------------------------------------"
         # ls -R .
@@ -162,9 +160,9 @@ jobs:
         # # dump all the system's known dlls (x86 and x64)
         # Dependencies/Dependencies.exe -knowndlls pyslsqp/_slsqp.cp310-win_amd64.pyd
 
-    - name: List contents of pyslsqp package in site-packages
-      run: |
-        python -c "import os, site; pyslsqp_dir = os.path.join(site.getsitepackages()[0], 'pyslsqp'); print(f'Contents of {pyslsqp_dir}:'); [print(os.path.join(root, name)) for root, dirs, files in os.walk(pyslsqp_dir) for name in files]"
+    # - name: List contents of pyslsqp package in site-packages
+    #   run: |
+    #     python -c "import os, site; pyslsqp_dir = os.path.join(site.getsitepackages()[0], 'pyslsqp'); print(f'Contents of {pyslsqp_dir}:'); [print(os.path.join(root, name)) for root, dirs, files in os.walk(pyslsqp_dir) for name in files]"
 
     - name: Test with pytest
       run: |
