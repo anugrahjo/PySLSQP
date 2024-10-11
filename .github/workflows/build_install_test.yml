@@ -56,8 +56,8 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-22.04, macos-14]
-        python-version: ["3.8", "3.10", "3.12"]
-
+        python-version: ["3.9", "3.10", "3.12"] # Python 3.8 does not support current meson configuration in pyslsqp
+                                                # Could probably be supported by editing the meson.build files
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}

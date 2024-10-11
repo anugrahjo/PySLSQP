@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         # macos-12,13 are intel runners, macos-14 is apple silicon, no runners for macos-14 with intel x86-64
-        os: [ubuntu-22.04, macos-12, macos-13, macos-14]
+        os: [ubuntu-22.04, macos-12, macos-13, macos-14, windows-2019, windows-2022]
         # Uncomment the following line for faster testing of the workflow
         # os: [ubuntu-22.04]
     
@@ -29,6 +29,15 @@ jobs:
       - name: Setup GNU Fortran
         if: false == contains( matrix.os, 'windows')
         uses: awvwgk/setup-fortran@v1
+
+      - name: Install mingw-w64 as Fortran compiler on Windows
+        if: contains( matrix.os, 'windows')
+        uses: msys2/setup-msys2@v2
+        with:
+          path-type: inherit
+          install: |
+            mingw-w64-x86_64-gcc
+            mingw-w64-x86_64-gcc-fortran
 
       # macos-12 wheels are only generated and tested for tags starting with 'v'
       - name: Build macos-12 wheels
@@ -97,7 +106,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-22.04, macos-13, macos-14]
+        os: [ubuntu-22.04, macos-13, macos-14, windows-2019, windows-2022]
         python-version: ["3.8", "3.12"]
     
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
