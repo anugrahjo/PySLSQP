@@ -30,20 +30,20 @@ jobs:
         if: false == contains( matrix.os, 'windows')
         uses: awvwgk/setup-fortran@v1
 
-      # - name: Install mingw-w64 as Fortran compiler on Windows
-      #   if: contains( matrix.os, 'windows')
-      #   uses: msys2/setup-msys2@v2
-      #   with:
-      #     path-type: inherit
-      #     install: |
-      #       mingw-w64-x86_64-gcc
-      #       mingw-w64-x86_64-gcc-fortran
-
-      - name: Install rtools (mingw-w64) on Windows
+      - name: Install mingw-w64 as Fortran compiler on Windows
         if: contains( matrix.os, 'windows')
-        run: |
-          choco install rtools -y --no-progress --force --version=4.0.0.20220206
-          echo "c:\rtools40\ucrt64\bin;" >> $env:GITHUB_PATH
+        uses: msys2/setup-msys2@v2
+        with:
+          path-type: inherit
+          install: |
+            mingw-w64-x86_64-gcc
+            mingw-w64-x86_64-gcc-fortran
+
+      # - name: Install rtools (mingw-w64) on Windows
+      #   if: contains( matrix.os, 'windows')
+      #   run: |
+      #     choco install rtools -y --no-progress --force --version=4.0.0.20220206
+      #     echo "c:\rtools40\ucrt64\bin;" >> $env:GITHUB_PATH
 
       # macos-12 wheels are only generated and tested for tags starting with 'v'
       - name: Build macos-12 wheels
@@ -128,11 +128,20 @@ jobs:
         if: false == contains( matrix.os, 'windows')
         uses: awvwgk/setup-fortran@v1
 
-      - name: Install rtools (mingw-w64) on Windows
+      - name: Install mingw-w64 as Fortran compiler on Windows
         if: contains( matrix.os, 'windows')
-        run: |
-          choco install rtools -y --no-progress --force --version=4.0.0.20220206
-          echo "c:\rtools40\ucrt64\bin;" >> $env:GITHUB_PATH
+        uses: msys2/setup-msys2@v2
+        with:
+          path-type: inherit
+          install: |
+            mingw-w64-x86_64-gcc
+            mingw-w64-x86_64-gcc-fortran
+
+      # - name: Install rtools (mingw-w64) on Windows
+      #   if: contains( matrix.os, 'windows')
+      #   run: |
+      #     choco install rtools -y --no-progress --force --version=4.0.0.20220206
+      #     echo "c:\rtools40\ucrt64\bin;" >> $env:GITHUB_PATH
 
       - name: Checkout the repository to the GitHub runner
         uses: actions/checkout@v4
