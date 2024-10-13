@@ -76,8 +76,8 @@ pip install pyslsqp
 
 > **Warning**
 > 
-> Precompiled wheels for common Ubuntu and macOS architectures are available on PyPI.
-  However, if a wheel for your system's architecture is not available, or if you are a Windows user,
+> Precompiled wheels for common Ubuntu, macOS, and Windows architectures are available on PyPI.
+  However, if a wheel for your system's architecture is not available,
   the above installation will compile the source distribution directly on your machine.
   In such scenarios, if your Fortran compilers aren't compatible, you may encounter compilation errors.
   Additional troubleshooting may be required to resolve these errors depending on their specifics.
