@@ -9,5 +9,5 @@ recursive-exclude docs/_build *
 # Exclude the paper directory in the source distribution
 recursive-exclude paper *
 
-# Exclude any .so files from the source distribution
-global-exclude *.so
+# Exclude any .so and .pyd files from the source distribution
+global-exclude *.so *.pyd
