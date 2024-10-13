@@ -101,6 +101,9 @@ if __name__ == "__main__":
                         to_path = os.path.join(target_path, file)
                         print(f"Copying {from_path} to {to_path}")
                         shutil.copy(from_path, to_path)
+            
+            # Delete the meson_builddir directory after copying the shared object file
+            shutil.rmtree('pyslsqp/slsqp/meson_builddir')
         
         else:
             build_meson()
