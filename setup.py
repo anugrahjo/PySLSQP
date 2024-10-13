@@ -85,7 +85,8 @@ if __name__ == "__main__":
 
             original_dir = os.getcwd()
             os.chdir('pyslsqp/slsqp')
-            subprocess.run(['python', '-m', 'numpy.f2py', '-c', 'slsqp.pyf', 'slsqp_optmz.f', '--backend', 'meson', '--build-dir', 'meson_builddir'], check=True)
+            # sys.executable ensures that the subprocess call uses the same Python interpreter and environment and numpy.f2py is available
+            subprocess.run([sys.executable, '-m', 'numpy.f2py', '-c', 'slsqp.pyf', 'slsqp_optmz.f', '--backend', 'meson', '--build-dir', 'meson_builddir'], check=True)
             os.chdir(original_dir)
 
             build_path  = os.path.join(os.getcwd(), 'pyslsqp', 'slsqp')

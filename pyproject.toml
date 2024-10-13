@@ -88,5 +88,3 @@ test-command = 'pytest {project}/tests -m "not visualize"'
 
 [tool.cibuildwheel.windows]
 skip = ["cp38-*", "*-win32"]
-build-frontend = { name = "build", args = ["--wheel", "--no-isolation"] }
-before-build = "pip install wheel numpy ninja setuptools meson meson-python wheel"
