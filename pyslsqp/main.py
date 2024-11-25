@@ -88,7 +88,7 @@ def check_update_scalar(scalar, name, size, ref_name):
     """
     Check and update the scalar value to match the size of the reference array.
     """
-    if isinstance(scalar, (int, float, np.float_, np.int_, np.int32, np.int64, np.float32, np.float64)):
+    if isinstance(scalar, (int, float, np.int_, np.int32, np.int64, np.float32, np.float64)):
         return np.full(size, scalar, dtype=float)
     elif not isinstance(scalar, np.ndarray):
         raise ValueError(f"{name} must be a scalar or a 1-D array.")
