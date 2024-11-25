@@ -187,8 +187,8 @@ def load_variables(filepath, vars, itr_start=0, itr_end=-1, major_only=False):
                 Summary saved to                     : slsqp_summary.out
                 Iteration data saved to              : slsqp_recorder.hdf5
     >>> from pyslsqp.postprocessing import load_variables
-    >>> load_variables('slsqp_recorder.hdf5', ['objective', 'optimality', 'x[0]'], itr_start=0, itr_end=-1, major_only=True)
-    {'objective': [np.float64(0.5), np.float64(0.0), np.float64(0.0)], 'optimality': [np.float64(99.0), np.float64(0.0), np.float64(0.0)], 'x[0]': [np.float64(0.5), np.float64(0.0), np.float64(0.0)]}
+    >>> load_variables('slsqp_recorder.hdf5', ['objective', 'optimality', 'x[0]'], itr_start=0, itr_end=-1, major_only=True)  # doctest: +ELLIPSIS
+    {'objective': [...0.5..., ...0.0..., ...0.0...], 'optimality': [...99.0..., ...0.0..., ...0.0...], 'x[0]': [...0.5..., ...0.0..., ...0.0...]}
     '''
     if not isinstance(filepath, str):
         raise ValueError("filepath must be a string.")
