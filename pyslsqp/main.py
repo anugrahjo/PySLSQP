@@ -133,10 +133,10 @@ def get_default_options():
     Examples
     --------
     >>> options = get_default_options()
-    >>> options # doctest: +NORMALIZE_WHITESPACE
+    >>> options # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
     {'obj': None, 'grad': None, 'con': None, 'jac': None, 'meq': 0, 'callback': None, 'xl': None, 'xu': None, 
     'x_scaler': 1.0, 'obj_scaler': 1.0, 'con_scaler': 1.0, 'maxiter': 100, 'acc': 1e-06, 'iprint': 1, 
-    'finite_diff_abs_step': None, 'finite_diff_rel_step': 1.4901161193847656e-08, 'summary_filename': 'slsqp_summary.out', 
+    'finite_diff_abs_step': None, 'finite_diff_rel_step': ...1.4901161193847656e-08..., 'summary_filename': 'slsqp_summary.out', 
     'warm_start': False, 'hot_start': False, 'load_filename': None, 'save_itr': None, 'save_filename': 'slsqp_recorder.hdf5', 
     'save_vars': ['x', 'objective', 'optimality', 'feasibility', 'step', 'iter', 'majiter', 'ismajor', 'mode'], 
     'visualize': False, 'visualize_vars': ['objective', 'optimality', 'feasibility'], 'keep_plot_open': False, 

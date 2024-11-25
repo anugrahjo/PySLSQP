@@ -188,7 +188,7 @@ def load_variables(filepath, vars, itr_start=0, itr_end=-1, major_only=False):
                 Iteration data saved to              : slsqp_recorder.hdf5
     >>> from pyslsqp.postprocessing import load_variables
     >>> load_variables('slsqp_recorder.hdf5', ['objective', 'optimality', 'x[0]'], itr_start=0, itr_end=-1, major_only=True)
-    {'objective': [0.5, 0.0, 0.0], 'optimality': [99.0, 0.0, 0.0], 'x[0]': [0.5, 0.0, 0.0]}
+    {'objective': [...0.5..., ...0.0..., ...0.0...], 'optimality': [...99.0..., ...0.0..., ...0.0...], 'x[0]': [...0.5..., ...0.0..., ...0.0...]}
 
     '''
     if not isinstance(filepath, str):
@@ -309,11 +309,11 @@ def load_results(filepath):
                 Iteration data saved to              : slsqp_recorder.hdf5
     >>> from pyslsqp.postprocessing import load_results
     >>> load_results('slsqp_recorder.hdf5')  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
-    {'constraints': array([], dtype=float64), 'feasibility': 0.0, 'fev_time': ..., 'gev_time': ..., 'gradient': array([0., 0.]), 
+    {'constraints': array([], dtype=float64), 'feasibility': ...0.0..., 'fev_time': ..., 'gev_time': ..., 'gradient': array([0., 0.]), 
     'jacobian': array([], shape=(0, 2), dtype=float64), 'message': 'Optimization terminated successfully', 
-    'multipliers': array([], dtype=float64), 'nfev': 2, 'ngev': 2, 'num_majiter': 2, 'objective': 0.0, 'optimality': 0.0, 
-    'optimizer_time': ..., 'processing_time': ..., 'save_filename': 'slsqp_recorder.hdf5', 'status': 0, 'success': True, 
-    'summary_filename': 'slsqp_summary.out', 'total_time': ..., 'visualization_time': 0.0, 'x': array([0., 0.])}
+    'multipliers': array([], dtype=float64), 'nfev': ...2..., 'ngev': ...2..., 'num_majiter': ...2..., 'objective': ...0.0..., 'optimality': ...0.0..., 
+    'optimizer_time': ..., 'processing_time': ..., 'save_filename': 'slsqp_recorder.hdf5', 'status': ...0..., 'success': ...True..., 
+    'summary_filename': 'slsqp_summary.out', 'total_time': ..., 'visualization_time': ...0.0..., 'x': array([0., 0.])}
 
     '''
     file = import_h5py_file(filepath)
@@ -369,11 +369,11 @@ def load_attributes(filepath):
                 Iteration data saved to              : slsqp_recorder.hdf5
     >>> from pyslsqp.postprocessing import load_attributes
     >>> load_attributes('slsqp_recorder.hdf5')  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
-    {'acc': 1e-06, 'con_scaler': 1.0, 'finite_diff_abs_step': 'None (undefined)', 'finite_diff_rel_step': 1.4901161193847656e-08, 
-    'hot_start': False, 'iprint': 1, 'keep_plot_open': False, 'load_filename': 'None (undefined)', 'm': 0, 'maxiter': 100, 'meq': 0, 'n': 2, 'obj_scaler': 1.0, 
+    {'acc': ...1e-06..., 'con_scaler': ...1.0..., 'finite_diff_abs_step': 'None (undefined)', 'finite_diff_rel_step': ...1.4901161193847656e-08..., 
+    'hot_start': ...False..., 'iprint': ...1..., 'keep_plot_open': ...False..., 'load_filename': 'None (undefined)', 'm': ...0..., 'maxiter': ...100..., 'meq': ...0..., 'n': ...2..., 'obj_scaler': ...1.0..., 
     'save_figname': 'slsqp_plot.pdf', 'save_filename': 'slsqp_recorder.hdf5', 'save_itr': 'major', 'save_vars': ['objective', 'optimality', 'x'], 
-    'summary_filename': 'slsqp_summary.out', 'visualize': False, 'visualize_vars': ['objective', 'optimality', 'feasibility'], 'warm_start': False, 
-    'x0': array([0.5, 0.5]), 'x_scaler': 1.0, 'xl': 0.0, 'xu': array([1, 1])}
+    'summary_filename': 'slsqp_summary.out', 'visualize': ...False..., 'visualize_vars': ['objective', 'optimality', 'feasibility'], 'warm_start': ...False..., 
+    'x0': array([0.5, 0.5]), 'x_scaler': ...1.0..., 'xl': ...0.0..., 'xu': array([1, 1])}
 
     '''
     file = import_h5py_file(filepath)
