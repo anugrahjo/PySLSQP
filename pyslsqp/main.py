@@ -94,7 +94,7 @@ def check_update_scalar(scalar, name, size, ref_name):
         raise ValueError(f"{name} must be a scalar or a 1-D array.")
     if len(scalar) != size:
         raise ValueError(f"{name} must have the same length as the {ref_name} ({size},).")
-    return np.asfarray(scalar) # Convert to float array if an integer array is provided
+    return np.asarray(scalar, dtype=np.float64) # Convert to float array if an integer array is provided
 
 def check_load_variables(read_file, iter, x, vars):
     """
@@ -399,7 +399,7 @@ def optimize(x0, obj=None, grad=None,
         visualizer = Visualizer(visualize_vars, summary_filename, save_figname)
 
     # Transform x0 into an array.
-    x = np.asfarray(x0).flatten()
+    x = np.asarray(x0, dtype=np.float64).flatten()
 
     # Warm start from previous optimization solution
     hot_run = False
