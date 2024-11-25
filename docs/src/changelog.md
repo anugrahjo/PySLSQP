@@ -6,6 +6,12 @@ in [`RELEASE_NOTES.md`](https://github.com/anugrahjo/PySLSQP/blob/main/release_n
 in the project root directory.
 
 ***********************************
+# Version 0.1.2 (November 24, 2024)
+
+- Add support for NumPy 2.x.x
+- Update PySLSQP software paper
+
+***********************************
 ## Version 0.1.1 (October 13, 2024)
 
 - Add support for Windows OS (cloud tested and wheels made available on PyPI) 

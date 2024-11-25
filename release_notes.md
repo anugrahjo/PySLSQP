@@ -1,3 +1,10 @@
+***********************************
+# PySLSQP 0.1.2 (November 24, 2024)
+
+- Add support for NumPy 2.x.x
+- Update PySLSQP software paper
+
+***********************************
 # PySLSQP 0.1.1 (October 13, 2024)
 
 - Add support for Windows OS (cloud tested and wheels made available on PyPI) 
