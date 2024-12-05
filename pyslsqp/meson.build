@@ -5,7 +5,7 @@ slsqp_source = custom_target('_slsqpmodule.c',
 )
 
 # Optimization flags for the Fortran compiler
-fortran_optimization_flags = ['-O3', '-ffp-contract=off', '-fno-fast-math', '-fno-associative-math', '-frounding-math', '-fno-aggressive-loop-optimizations', '-fno-unsafe-math-optimizations', '-fno-tree-vectorize']
+fortran_optimization_flags = ['-O3', '-frounding-math', '-fno-aggressive-loop-optimizations', '-fno-unsafe-math-optimizations', '-fno-tree-vectorize']
 
 py.extension_module('_slsqp',
   ['slsqp/slsqp_optmz.f', slsqp_source],      # Source files for the extension module
