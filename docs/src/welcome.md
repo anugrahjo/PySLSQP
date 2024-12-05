@@ -51,11 +51,16 @@ If you use PySLSQP in your work, please use the following reference for citation
 
 ```bibtex
 @article{joshy2024pyslsqp,
-  title={PySLSQP: A transparent Python package for the SLSQP optimization algorithm modernized with utilities for visualization and post-processing},
-  author={Joshy, Anugrah Jo and Hwang, John T},
-  journal={arXiv preprint},
-  year={2024},
-  doi= {10.48550/arXiv.2408.13420},
+  title = {PySLSQP: A transparent Python package for the SLSQP optimization algorithm modernized with utilities for visualization and post-processing},
+  author = {Anugrah Jo Joshy and John T. Hwang},
+  journal = {Journal of Open Source Software},
+  publisher = {The Open Journal},
+  year = {2024},
+  volume = {9},
+  number = {103},
+  pages = {7246},
+  url = {https://doi.org/10.21105/joss.07246},
+  doi = {10.21105/joss.07246},
 }
 ```
 

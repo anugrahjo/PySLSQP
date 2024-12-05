@@ -6,6 +6,12 @@ in [`RELEASE_NOTES.md`](https://github.com/anugrahjo/PySLSQP/blob/main/release_n
 in the project root directory.
 
 ***********************************
+## Version 0.1.3 (December 5, 2024)
+
+- Improve performance (multifold) with compiler optimization
+- Update citation and include the published paper
+
+***********************************
 ## Version 0.1.2 (November 24, 2024)
 
 - Add support for NumPy 2.x
