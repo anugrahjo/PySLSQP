@@ -23,8 +23,8 @@ dependencies = [
   "matplotlib>=3.4,<4",
 ]
 classifiers=[
-  'Development Status :: 4 - Beta',
-  # 'Development Status :: 5 - Production/Stable',
+  # 'Development Status :: 4 - Beta',
+  'Development Status :: 5 - Production/Stable',
   'License :: OSI Approved :: BSD License',
   'Operating System :: MacOS',
   'Operating System :: POSIX :: Linux', 

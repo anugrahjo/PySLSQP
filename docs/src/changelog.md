@@ -8,7 +8,7 @@ in the project root directory.
 ***********************************
 ## Version 0.1.2 (November 24, 2024)
 
-- Add support for NumPy 2.x.x
+- Add support for NumPy 2.x
 - Update PySLSQP software paper
 
 ***********************************
