@@ -9,6 +9,7 @@ in the project root directory.
 ## Version 0.1.3 (December 5, 2024)
 
 - Improve performance (multifold) with compiler optimization
+- Withdraw support for prebuilt macos-12 wheels
 - Update citation and include the published paper
 
 ***********************************
@@ -20,7 +21,8 @@ in the project root directory.
 ***********************************
 ## Version 0.1.1 (October 13, 2024)
 
-- Add support for Windows OS (cloud tested and wheels made available on PyPI) 
+- Add support for Windows OS (cloud tested and wheels made available on PyPI)
+- Withdraw support for prebuilt macos-11 wheels
 - More precise timing with perf_counter()
 - Fix swapped printing of average function and derivative evaluation times in final results
 - Minor updates to documentation
