@@ -52,23 +52,20 @@ Make sure to fill out the pull request template and assign reviewers (repo admin
 ```sh
 git pull # Get most up-to-update version
 ```
-1. Merge with main and check for conflicts
+2. Merge with main and check for conflicts
 ```sh
 git merge main # merge with main locally on your branch to check for conflicts
 ```
-1. Run tests
+3. Run tests
 ```sh
 pytest # standard testing
 pytest --disable-warnings # tests without displaying warnings
 pytest -rP # tests while displaying print statements
 ```
-
-1. Push changes
-
+4. Push changes
 ```sh
 git push
 ```
-
 5. Create pull request on GitHub with descriptions for changes.
  - Fill out pull request template
  - Assign reviewers (repo admin(s)) -->

@@ -6,6 +6,7 @@
 [![Pypi version](https://img.shields.io/pypi/v/pyslsqp)](https://pypi.org/project/pyslsqp/)
 [![PyPI Downloads](https://static.pepy.tech/badge/pyslsqp)](https://pepy.tech/projects/pyslsqp)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/anugrahjo/PySLSQP/blob/main/LICENSE.txt)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.07246/status.svg)](https://doi.org/10.21105/joss.07246)
 <!-- [![PyPI Monthly Downloads][https://img.shields.io/pypi/dm/pyslsqp]][https://pypi.org/project/pyslsqp/] -->
 <!-- [![Forks](https://img.shields.io/github/forks/anugrahjo/PySLSQP.svg)](https://github.com/anugrahjo/PySLSQP/network) -->
 <!-- [![Issues](https://img.shields.io/github/issues/anugrahjo/PySLSQP.svg)](https://github.com/anugrahjo/PySLSQP/issues) -->
