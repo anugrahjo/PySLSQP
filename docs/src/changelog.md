@@ -6,6 +6,11 @@ in [`RELEASE_NOTES.md`](https://github.com/anugrahjo/PySLSQP/blob/main/release_n
 in the project root directory.
 
 ***********************************
+## Version 0.1.4 (February 7, 2025)
+
+- Fix accidental change of `majiter` reference during major iteration jumps
+
+***********************************
 ## Version 0.1.3 (December 5, 2024)
 
 - Improve performance (multifold) with compiler optimization

@@ -764,7 +764,7 @@ def optimize(x0, obj=None, grad=None,
 
         if majiter > majiter_prev and majiter != majiter_prev + 1:
             warnings.warn(f"SLSQP Bug: Major iteration counter jumped from {majiter_prev} to {majiter}. Resetting to {majiter_prev + 1}.")
-            majiter = majiter_prev + 1
+            majiter = array(majiter_prev + 1, int)
 
         x = x_scaled / x_scaler
 
@@ -807,7 +807,7 @@ def optimize(x0, obj=None, grad=None,
         # SLSQP sometimes forgets to update the majiter when it exits with abs(mode) != 1 (Possible bug?)
         if abs(mode) != 1:
             if majiter == majiter_prev: # If majiter has not incremented when exiting, increment it
-                majiter = int(majiter) + 1
+                majiter += 1
             
         out_dict['iter'] = iter
         out_dict['majiter'] = majiter * 1 # Copy the value of majiter to out_dict
